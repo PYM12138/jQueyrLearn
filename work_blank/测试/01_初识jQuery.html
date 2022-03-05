@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>01_初识jQuery</title>
+  <!--原生JS代码-->
+  <script>
+    window.onload=function () {
+      var btn = document.getElementById("btn1");
+      btn.onclick=function () {
+        var username = document.getElementById("username").value;
+        alert(username);
+      }
+    };
+  </script>
+  <!--jQuery版-->
+  <!--1.引用jQuery.js文件-->
+  <script src="js/jquery-1.12.3.js"></script>
+  <script>
+    /*
+    * 翻译一下代码：
+    *   $() == window.onload
+    *   $("#btn2") == document.getElementById 并且还自动包装成jQuery对象
+    *   jQuery对象.val(); 获取对于元素的value属性值
+    * */
+    $(function () {
+      $("#btn2").click(function () {
+        var username = $("#username").val();
+        alert(username);
+      });
+    });
+
+    /*
+    * jQuery有两个核心：
+    *   1.调用jQuery的核心函数 $()
+    *   2.返回jQuery的核心对象
+    * */
+
+
+
+  </script>
+
+
+
+</head>
+<body>
+<!--
+需求: 点击"确定"按钮, 提示输入的值
+-->
+
+用户名: <input type="text" id="username">
+<button id="btn1">确定(原生版)</button>
+<button id="btn2">确定(jQuery版)</button>
+
+</body>
+
+</html>
