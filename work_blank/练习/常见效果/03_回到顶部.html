@@ -22,7 +22,122 @@
 <body style="height: 2000px;">
 
 <div id="to_top">返回顶部</div>
+<div>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+</div>
 
 </body>
+<script src="../js/jquery-1.12.3.js"></script>
+<script>
+  /*//返回顶部（瞬间）
+    $("#to_top").click(function () {
+      $("html").scrollTop(0);
+    })*/
 
+  //返回顶部(缓慢)
+  $("#to_top").click(function () {
+
+
+    //获取当前被移动的距离
+    var currentDistance=$("html").scrollTop();
+
+    //设置总时间
+    var time=500;
+
+    //设置每次移动的间隔时间
+    var intervalTime=30;
+
+    //每次移动的间隔距离
+    var intervalDistance=currentDistance/(time/intervalTime);
+
+   var interTime=setInterval(function () {
+      //当前距离-单次需要移动的距离
+      currentDistance -=intervalDistance;
+
+      //判断归零点
+      if (currentDistance<=0){
+        currentDistance=0;
+        //结束定时器
+        clearInterval(interTime);
+      }
+
+
+      //设置移动距离
+      $("html").scrollTop(currentDistance);
+
+
+
+
+    },intervalTime)
+
+
+  })
+
+
+
+
+
+</script>
 </html>
