@@ -63,6 +63,32 @@
     50元包月详情：<br/>&nbsp;每月无限量随心打
   </div>
 </div>
+<script src="../js/jquery-1.12.3.js"></script>
+<script>
+  //当前显示div下标
+  var currentIndex=0;
+  //获取所有的div的子元素
+  var $contents = $("#container>div");
 
+  //首先#tab全部子元素绑定点击事件
+  $("#tab>li").click(function () {//隐式遍历
+
+    //1.隐藏当前显示的div
+    //或者全部隐藏 $contents.css("display","none");
+    $contents[currentIndex].style.display='none';
+
+    //2.显示当前被点击的div的下标
+    var index = $(this).index();
+    $contents[index].style.display='block';
+
+    //更新被隐藏的下标
+    currentIndex=index;
+
+  });
+
+
+
+
+</script>
 </body>
 </html>

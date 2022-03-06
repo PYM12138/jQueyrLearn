@@ -36,6 +36,19 @@
    3. 选中class为box的下一个li
    4. 选中ul下的class为box的元素后面的所有兄弟元素
    */
+  //1. 选中ul下所有的的span(只要在ul后面的span全部匹配) 语法:ancestor descendant
+  //$("ul span").css("background","red");
+
+  // 2. 选中ul下所有的子元素span   语法:parent>child
+  //$("ul>span").css("background","yellow");
+
+  //3. 选中class为box的下一个li  语法:prev+next
+  //$(".box+li").css("background","yellowgreen");
+
+  //4. 选中ul下的class为box的元素后面的所有兄弟元素 语法:prev~siblings
+  $("ul .box~*").css("background","greenyellow");
+
+
 </script>
 </body>
 </html>
