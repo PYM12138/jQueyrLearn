@@ -82,6 +82,35 @@
    5. 将在id为ul2的ul下的li(title为hello)全部替换为p
    6. 移除id为ul2的ul下的所有li
    */
+  var $ul1 = $("#ul1");
+
+  // 1. 向id为ul1的ul下添加一个span(最后)
+    //在内部添加
+    //$ul1.append("<span>通过append()添加</span>");
+    //先写在内存中在添加进去
+    $("<span>通过appendTo()添加</span>").appendTo($ul1);
+
+  // 2. 向id为ul1的ul下添加一个span(最前)
+    //在内部添加
+    //$ul1.prepend("<span>通过prepend()添加</span>");
+    //在内存中创建并添加进去
+    $("<span>通过prependTo()添加</span>").prependTo($ul1);
+
+  // 3. 在id为ul1的ul下的li(title为hello)的前面添加span
+  $ul1.children("[title=hello]").before("<span>通过before()插入</span>");
+
+  // 4. 在id为ul1的ul下的li(title为hello)的后面添加span
+  $ul1.children("[title=hello]").after("<span>通过after()插入</span>");
+
+  // 5. 将在id为ul2的ul下的li(title为hello)全部替换为p
+  $("#ul2>li[title=hello]").replaceWith("<p>这是p标签(替换)</p>");
+  //.replaceAll() 用于当前页面的指定的元素去替换另一个元素，不能通过创建标签去替换。
+
+  // 6. 移除id为ul2的ul下的所有li
+  //$("#ul2").empty();//保留本身，清空里面的内容
+  //移除指定的元素
+  $("#ul2>li").remove();
+
 </script>
 </body>
 </html>

@@ -70,4 +70,60 @@
 </div>
 
 </body>
+<script src="../js/jquery-1.12.3.js"></script>
+<script>
+  //添加
+  $("#addEmpButton").click(function () {
+    //1.获取表格的元素
+    var $empName = $('#empName');
+    var $email = $('#email');
+    var $salary = $('#salary');
+      //1.1 获取元素内容
+      var empNameVal=$empName.val();
+      var emailVal=$email.val();
+      var salaryVal=$salary.val();
+
+    //2.创建标签，并把表格的元素内容添加进去，然后在添加到tbody里面
+
+    /*
+    *
+    <tr>
+      <td>Tom</td>
+      <td>tom@tom.com</td>
+      <td>5000</td>
+      <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    * */
+    $("<tr></tr>")
+            .append("<td>"+empNameVal+"</td>")
+            .append("<td>"+emailVal+"</td>")
+            .append("<td>"+salaryVal+"</td>")
+            .append("<td><a href=\"deleteEmp?id="+Date.now()+"\">Delete</a></td>")
+            .appendTo("#employeeTable>tbody")
+            .find("a")
+            .click(deleteTr);
+    //3.清空表格的内容值
+    $empName.val('');
+    $email.val('');
+    $salary.val('');
+  });
+
+  //删除
+  $("#employeeTable a").click(deleteTr);
+
+  //提取出来，因为新添加的tr a 标签也要绑定删除函数
+  function deleteTr () {
+    var $tr = $(this).parent().parent();
+    //获取姓名作为提示信息
+    var name = $tr.children(":first").html();
+    if (confirm("你确定要删除"+name+"吗？")){
+      $tr.remove();
+    }
+    //取消confirm默认行为
+    return false;
+  }
+
+
+</script>
+
 </html>
