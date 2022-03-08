@@ -20,7 +20,61 @@
   <input type="button" id="checkedRevBtn" value="反　选"/>
   <input type="button" id="sendBtn" value="提　交"/>
 </form>
-
 </body>
+<script src="../js/jquery-1.12.3.js"></script>
+<script>
+  //全选/全不选
+  var $checkedAllBox = $("#checkedAllBox");
+  //每一项爱好
+  var $items = $(":checkbox[name=items]");
+
+  // 1. 点击'全选': 选中所有爱好
+  $("#checkedAllBtn").click(function () {
+    $items.prop("checked",true);
+    $checkedAllBox.prop("checked",true);
+  });
+
+  // 2. 点击'全不选': 所有爱好都不勾选
+  $("#checkedNoBtn").click(function () {
+    $items.prop("checked",false);
+    $checkedAllBox.prop("checked",false);
+  });
+
+  // 3. 点击'反选': 改变所有爱好的勾选状态
+  $("#checkedRevBtn").click(function () {
+    $items.each(function () {
+      this.checked=!this.checked;
+    })
+    //只要找到一个没有选中的items就是false
+    $checkedAllBox.prop("checked",$items.filter(":not(:checked)").length===0)
+
+    //自己写的方法太笨了，还不美观，不简洁，不优雅.
+  /*  if ($items.filter(":not(:checked)").length === 0) {
+      $checkedAllBox.prop("checked",true)
+    }else{
+      $checkedAllBox.prop("checked",false)
+    }*/
+  });
+
+  // 4. 点击'提交': 提示所有勾选的爱好
+  $("#sendBtn").click(function () {
+    $items.filter(":checked").each(function () {
+      alert(this.value);
+    })
+  })
+
+  // 5. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+  $checkedAllBox.click(function () {
+    $items.prop("checked",this.checked);
+  })
+
+
+  // 6. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+  $items.click(function () {
+    $checkedAllBox.prop("checked",$items.filter(":not(:checked)").length===0);
+  })
+
+
+</script>
 
 </html>

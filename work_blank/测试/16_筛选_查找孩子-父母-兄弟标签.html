@@ -46,6 +46,25 @@
    5. id为cc的li标签的所有兄弟li标签
    */
 
+  //在已经匹配出的元素集合中根据选择器查找孩子/父母/兄弟标签,在本身查找，所以还是返回一个jQuery对象
+  var $ul = $("ul");
+
+  // 1. ul标签的第2个span子标签 children()--->子元素
+  //$ul.children("span:eq(1)").css("background","red");
+
+  // 2. ul标签的第2个span后代标签 find()--->后代元素(包括了子标签)
+  //$ul.find("span:eq(2)").css("background","red");
+
+  // 3. ul标签的父标签
+  //$ul.parent().css("background","red");
+
+  // 4. id为cc的li标签的前面的所有li标签
+  //$("#cc").prevAll("li").css("background","red");
+
+  // 5. id为cc的li标签的所有兄弟li标签
+  $("#cc").siblings("li").css("background","red");
+
+
 </script>
 </body>
 </html>

@@ -39,6 +39,32 @@
    6. ul下li标签中有span子标签的
    */
 
+  //过滤要在伪(类)数组的基础上,返回一个jQuery对象
+  var $ul = $("ul>li");
+
+  // 1. ul下li标签第一个
+  // $ul.first().css("background","red");
+
+  // 2. ul下li标签的最后一个
+  // $ul.last().css("background","red");
+
+  // 3. ul下li标签的第二个
+  // $ul.eq(1).css("background","red");
+
+  // 4. ul下li标签中title属性为hello的
+  //$ul.filter("[title=hello]").css("background","red");
+
+  // 5. ul下li标签中title属性不为hello的
+  //$ul.filter("[title!=hello]").css("background","red");
+  //$ul.not("[title=hello]").css("background","red");
+
+  //5.1 ul下li标签中必须要拥有title但属性不为hello的
+  //$ul.filter("[title!=hello]").filter("[title]").css("background","red");
+  //$ul.filter("[title][title!=hello]").css("background","red");
+
+  // 6. ul下li标签中有span子标签的
+  $ul.has("span").css("background","yellow");
+
 </script>
 </body>
 </html>
