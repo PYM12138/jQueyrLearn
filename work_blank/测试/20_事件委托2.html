@@ -36,6 +36,21 @@
 -->
 <script src="js/jquery-1.10.1.js"></script>
 <script>
+  //事件委派的关键字: 父元素 冒泡 子元素 this this.回调函数
+
+  $("ul").delegate("li","click",function () {
+      this.style.background="red";
+  });
+
+  $("#btn1").click(function () {
+    $("ul").append("<li>新的li</li>");
+  });
+
+  $("#btn2").click(function () {
+    $("ul").undelegate("click");
+  });
+
+
 
 </script>
 </body>
