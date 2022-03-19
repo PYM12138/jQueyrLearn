@@ -27,7 +27,7 @@
 </div>
 
 <!--
-滑动动画
+滑动动画，操作的是height属性来制作的动画效果
 1. slideDown(): 带动画的展开
 2. slideUp(): 带动画的收缩
 3. slideToggle(): 带动画的切换展开/收缩
@@ -40,6 +40,22 @@
    2. 点击btn3, 向下滑动
    3. 点击btn3, 向上/向下切换
    */
+  var $div1 = $(".div1");
+
+  $("#btn1").click(function () {
+    $div1.slideUp("1000",function () {
+      alert("动画执行完毕!");
+    });
+  });
+
+  $("#btn2").click(function () {
+    $div1.slideDown();
+  });
+
+  $("#btn3").click(function () {
+    $div1.slideToggle();
+  })
+
 
 </script>
 </body>

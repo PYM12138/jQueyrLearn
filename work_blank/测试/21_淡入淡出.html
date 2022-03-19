@@ -28,7 +28,7 @@
 </div>
 
 <!--
-淡入淡出: 不断改变元素的透明度来实现的
+淡入淡出: 不断改变元素的透明度来实现的 ,操纵的是opacity属性来实现的效果
 1. fadeIn(): 带动画的显示
 2. fadeOut(): 带动画隐藏
 3. fadeToggle(): 带动画切换显示/隐藏
@@ -45,6 +45,23 @@
    2. 点击btn3, 慢慢淡入
    3. 点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
    */
+  var $div1 = $(".div1");
+
+  $("#btn1").click(function () {
+    //可传参数：时间(毫秒值)，回调函数
+    $div1.fadeOut("1000",function () {
+      alert("动画执行完毕!");
+
+    });
+  });
+
+  $("#btn2").click(function () {
+    $div1.fadeIn();
+  });
+
+  $("#btn3").click(function () {
+    $div1.fadeToggle();
+  });
 
 </script>
 </body>

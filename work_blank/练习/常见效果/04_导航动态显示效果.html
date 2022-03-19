@@ -88,7 +88,8 @@
 <div id="navigation">
   <ul>
     <li><a href="#">首 页</a></li>
-    <li><a href="#">衬 衫</a>
+    <li>
+      <a href="#">衬 衫</a>
       <ul>
         <li><a href="#">短袖衬衫</a></li>
         <li><a href="#">长袖衬衫</a></li>
@@ -101,7 +102,8 @@
         <li><a href="#">套头卫衣</a></li>
       </ul>
     </li>
-    <li><a href="#">裤 子</a>
+    <li>
+      <a href="#">裤 子</a>
       <ul>
         <li><a href="#">休闲裤</a></li>
         <li><a href="#">卡其裤</a></li>
@@ -112,6 +114,19 @@
     <li><a href="#">联系我们</a></li>
   </ul>
 </div>
+<script src="../js/jquery-1.12.3.js"></script>
+<script>
+  //找到要操作的标签  这个获取的是li标签，而且里面包含ul标签
+  var $navigation = $("#navigation>ul>li:has(ul)");
 
+  $navigation.hover(function () {
+    //$(this)所以这个就是指当前操作的li标签
+    //stop()防止一直反复触发。每次触发都会先取消掉上一次的动画
+   $(this).children('ul').stop().slideDown();
+  },function () {
+    $(this).children('ul').stop().slideUp();
+  })
+
+</script>
 </body>
 </html>
