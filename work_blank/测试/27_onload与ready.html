@@ -12,11 +12,11 @@
 区别: window.onload与 $(document).ready()
   * window.onload
     * 包括页面的图片加载完后才会回调(晚)
-    * 只能有一个监听回调
+    * 只能有一个监听回调，以最后一份为准，其余全部覆盖
   * $(document).ready()
     * 等同于: $(function(){})
     * 页面加载完就回调(早)
-    * 可以有多个监听回调
+    * 可以有多个监听回调，要多少写多少
 -->
 <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
 <script type="text/javascript">

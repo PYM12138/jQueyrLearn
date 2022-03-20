@@ -50,6 +50,26 @@
      * reverseCheck() : 全反选
    */
 
+  console.log($.min(1,2));
+  console.log($.max(1,2));
+  var str="   I like you    ";
+  console.log("aaaaa"+$.leftTrim(str)+"aaaaa");
+  console.log("aaaaa"+$.rightTrim(str)+"aaaaa");
+
+  var $items = $(":checkbox[name=items]");
+
+  $("#checkedAllBtn").click(function () {
+      $items.checkAll();
+  });
+
+  $("#checkedNoBtn").click(function () {
+    $items.unCheckAll();
+  });
+  $("#reverseCheckedBtn").click(function () {
+    $items.reverseCheck();
+  })
+
+
 </script>
 </body>
 </html>
